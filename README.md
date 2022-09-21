@@ -1,1 +1,1 @@
-# RP-2022-2023-Jaroslav-Novy
+RP-NOV--JAROSLAV-3AI-SOLOQ
