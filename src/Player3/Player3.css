@@ -1,0 +1,15 @@
+#player3Cards {
+    width: 40%;
+    position: absolute;
+    left: 30%;
+    top: 6vh;
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+  }
+
+  #player3Cards img {
+    margin: 0.5%;
+    position: relative;
+    margin-top: -5vh;
+  }

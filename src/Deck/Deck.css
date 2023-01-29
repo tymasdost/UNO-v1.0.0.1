@@ -1,0 +1,10 @@
+#deck {
+    position: absolute;
+    top: 40%;
+    left: 55%;
+}
+
+#deck img {
+    position: absolute !important;
+}
+
