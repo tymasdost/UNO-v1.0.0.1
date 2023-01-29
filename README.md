@@ -1,3 +1,6 @@
+
+<img src="https://media1.giphy.com/media/KKSaMHBKPwMP5UgGwR/giphy.gif?cid=ecf05e47hld4r94zqgcfl9c668wpozm7rasje8fjtj9en537&rid=giphy.gif&ct=g" width="376" height="480">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
