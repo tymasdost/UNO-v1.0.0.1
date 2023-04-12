@@ -1,0 +1,16 @@
+#player2Cards {
+  width: 25%;
+  position: absolute;
+  left: 2%;
+  top: 23vh;
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+  transform: rotate(-45deg);
+}
+
+#player2Cards img {
+  margin: 0.2%;
+  position: relative;
+  margin-top: -12vh;
+}

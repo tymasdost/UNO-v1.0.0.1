@@ -1,0 +1,9 @@
+#cardDeck {
+    position: absolute;
+    top: 40%;
+    left: 45%;
+}
+
+#cardDeck img {
+    position: absolute !important;
+}
