@@ -38,6 +38,7 @@ function App(props) {
   const [winner, setwinner] = useState();
   const [effect, seteffect] = useState("NONE");
   const [takeCount, setTakeCount] = useState(0);
+
   let itemList = [];
   let played = getCardValue(playedDeck[playedDeck.length - 1]);
   const delay = ms => new Promise(
@@ -52,14 +53,14 @@ function App(props) {
         break;
       case 12:
         seteffect("take2")
-        setTakeCount(takeCount+2);
-        break;  
+        setTakeCount(takeCount + 2);
+        break;
       case 13:
-        if(card/14 > 4) {
+        if (card / 14 > 4) {
           seteffect("take4")
-          setTakeCount(takeCount+4);
+          setTakeCount(takeCount + 4);
         }
-        break;  
+        break;
       default:
     }
   }
@@ -74,30 +75,25 @@ function App(props) {
       PLAYING = false
     }
   }
-
-  const checkPlayerCards = () => {
-    if (TURN % 4 === 0 && !PLAYING) {
+  const checkPlayerCards = async () => {
+    if (TURN % 4 === 0 && !PLAYING && effect !== "NONE" && document.getElementsByClassName('highlight').length === 0) {
       switch (effect) {
         case "block":
-            if (document.getElementsByClassName('highlight').length === 0) {
-              seteffect("NONE")
-              TURN += way
-              PLAYING = false
-            }
+          TURN += way
+          PLAYING = false
           break;
         case "take4":
         case "take2":
-          if (document.getElementsByClassName('highlight').length === 0) {
-            setplayerCards([...playerCards, ...getCards(takeCount)])
-            setTakeCount(0)
-            seteffect("NONE")
-            TURN += way
-            PLAYING = false
-          }
+          await animateCard("get", "Back");
+          setplayerCards([...playerCards, ...getCards(takeCount)]);
+          setTakeCount(0)
           break;
         default:
 
       }
+      seteffect("NONE")
+      (TURN % 4 === 0 ? TURN += way : null)
+      PLAYING = false
     }
 
   }
@@ -131,11 +127,11 @@ function App(props) {
         break;
       case "take4":
       case "take2":
-        if ((value.split('_')[1] === played.split('_')[1 || value.split('_')[1] === "Pick4"]) && TURN % 4 === 0) {
+        if ((value.split('_')[1] === "Take2" || value.split('_')[1] === "Pick4") && TURN % 4 === 0) {
           clas += "highlight";
           click = () => playCard(index, card);
         }
-      break;
+        break;
       default:
         if ((value.split('_')[0] === played.split('_')[0] || value.split('_')[1] === played.split('_')[1] || value.split('_')[0] === "Wild" || played.split('_')[0] === "Wild") && TURN % 4 === 0) {
           clas += "highlight";
@@ -152,7 +148,7 @@ function App(props) {
 
   const animateCard = async (play, img) => {
     card.setAttribute("src", `/${props.myProp[0][2]}/${img}.png`);
-    card.setAttribute("id", `${play}` + (TURN < 0 ? (TURN % 4)*-1 : TURN % 4));
+    card.setAttribute("id", `${play}` + (TURN < 0 ? (TURN % 4) * -1 : TURN % 4));
     document.getElementById('container').appendChild(card);
     await delay(950);
     card.remove();
@@ -180,11 +176,11 @@ function App(props) {
               seteffect("NONE")
             }
             break;
-            case "take4":
-            case "take2":
+          case "take4":
+          case "take2":
             for (let i = 0; i < deckAi.length; i++) {
               const value = getCardValue(deckAi[i]);
-              if (value.split('_')[1] === played.split('_')[1] || value.split('_')[1] === "Pick4") {
+              if (value.split('_')[1] === "Take2" || value.split('_')[1] === "Pick4") {
                 temp = i;
                 break;
               }
@@ -245,7 +241,7 @@ function App(props) {
         checkPlayerCards();
         break;
       case 1:
-      case -1:
+      case -3:
         playAi(player1Cards, setplayer1Cards)
         break;
       case 2:
@@ -253,12 +249,12 @@ function App(props) {
         playAi(player2Cards, setplayer2Cards)
         break;
       case 3:
-      case -3:
+      case -1:
         playAi(player3Cards, setplayer3Cards)
         break;
       default:
     }
-    console.log(`PLAYER TURN -> ${(TURN < 0 ? (TURN % 4)*-1 : TURN % 4)}`)
+    console.log(`PLAYER TURN -> ${(TURN < 0 ? (TURN % 4) * -1 : TURN % 4)}`)
   }
 
 
