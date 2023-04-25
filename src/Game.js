@@ -149,9 +149,26 @@ function App(props) {
     )
   })
 
-  const animateCard = async (play, img) => {
+   const animateCard = async (play, img) => {
+    let playerAnim;
+    switch (TURN % 4) {
+      case 1:
+      case -3:
+        playerAnim = 1;
+        break;
+      case 2:
+      case -2:
+        playerAnim = 2;
+        break;
+      case 3:
+      case -1:
+        playerAnim = 3;
+        break;
+      default:
+        playerAnim = 0;
+    }
     card.setAttribute("src", `/${props.myProp[0][2]}/${img}.png`);
-    card.setAttribute("id", `${play}` + (TURN < 0 ? (TURN % 4) * -1 : TURN % 4));
+    card.setAttribute("id", `${play}` + (playerAnim));
     document.getElementById('container').appendChild(card);
     await delay(950);
     card.remove();
