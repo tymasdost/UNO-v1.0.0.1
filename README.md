@@ -18,4 +18,5 @@ UNO je desková karetní hra pro dva až deset hráčů, kteří se snaží co n
 <div style="display:flex; justify-content:center;">
 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGY1NjUwZWM0ZTBkZDExNTk0ZGM2NGM0NjU1ZDI4Nzc4NjA0M2EzNiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/uzqfviZSmoz39x4jwz/giphy.gif" width="400" height="240">
 <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWFmZDUyZGYyOWE5MTg0NGQ2NGM3OWI1YTQ4MWQ4Yjc3ZmRkYTQxYSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/KPsq93bCNUrXjOfK74/giphy.gif" width="400" height="240">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExODZkNTYyZGRhNzJjYTIyMzc5NzIyMGU0YzBhOGUyZjc3ZmUwOGY4MSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/NhUgoELM7bmIhJSJS3/giphy.gif" width="400" height="240">
 </div>
